@@ -4,3 +4,4 @@ css3示例展示
 |图片|地址|
 |---|---|
 | ![avatar](https://mirror198829.github.io/static/css/cssDemo.png) | https://mirror198829.github.io/CSS3/cssDemo.html |
+| ![avatar](https://mirror198829.github.io/static/css/cubeAuto.png) | https://mirror198829.github.io/CSS3/cubeAuto.html |
