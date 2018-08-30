@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>translate滑竿实现rotate旋转</title>
+<style>
+
+#experiment{
+     -webkit-perspective:800;
+     -webkit-perspective-origin:50% 50%;
+     -webkit-transform-style:-webkit-preserve-3d;
+}
+#block{
+     width:200px;
+     height:200px;
+     background-color:pink;
+     margin:100px auto;
+     -webkit-transition:background-color 3s;
+}
+#block:hover{
+     background-color:purple;
+}
+.range-control{ width:350px;}
+</style>
+
+<script type="text/javascript">
+   function rotate(){
+	var x=document.getElementById("rotateX").value;
+	var y=document.getElementById("rotateY").value;
+	var z=document.getElementById("rotateZ").value;
+	document.getElementById("block").style.webkitTransform="rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)";
+	document.getElementById("degx-span").innerText=x;
+	document.getElementById("degy-span").innerText=y;
+	document.getElementById("degz-span").innerText=z;
+   }
+</script>
+</head>
+<body>
+<div id="experiment">
+	<div id="block"></div>
+</div>
+<center>
+	<div id="ksl">
+  		<p>rotate x(沿x轴旋转):<span id="degx-span">0</span>deg</p>
+  		<input type="range" min="-360" max="360" id="rotateX" value="0" class="range-control" onmousemove="rotate()"/><br/>
+  		<p>rotate y(沿y轴旋转):<span id="degy-span">0</span>deg</p>
+  		<input type="range" min="-360" max="360" id="rotateY" value="0" class="range-control" onmousemove="rotate()"/><br/>
+		<p>rotate z(沿z轴旋转):<span id="degz-span">0</span>deg</p> 
+		<input type="range" min="-360" max="360" id="rotateZ" value="0" class="range-control" onmousemove="rotate()"/><br/>
+</div>
+</center>
+</body>
+</html>

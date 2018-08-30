@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>translate滑竿实现translate效果</title>
+<style>
+#pagegroup{ width:400px; height:400px; position:relative; -webkit-perspective:800; -webkit-perspective-origin:center 400px; -webkit-transform-style:-webkit-preserve-3d; }
+.page{ width:360px; height:360px; padding:20px; background:black; color:white; font-size:360px; line-height:360px; text-align:center; position:absolute;}
+#page1{ -webkit-transform-origin:bottom; -webkit-transition:-webkit-transform 1s linear;}
+#page2,#page3,#page4,#page5,#page6{ -webkit-transform-origin:bottom; -webkit-transform:rotateX(90deg); -webkit-transition:-webkit-transform 1s linear;}
+#op{ margin-top:20px;}
+</style>
+
+<script type="text/javascript">
+	var curIndex=1;
+	function next(){
+		if(curIndex==6)
+		return;
+		var curPage=document.getElementById("page"+curIndex);
+		curPage.style.webkitTransform="rotateX(-90deg)";
+		curIndex++;
+		var nextPage=document.getElementById("page"+curIndex);
+		nextPage.style.webkitTransform="rotateX(0deg)";
+	};
+	function pre(){
+		if(curIndex==1)
+		return;
+		var curPage=document.getElementById("page"+curIndex);
+		curPage.style.webkitTransform="rotateX(90deg)";
+		curIndex--;
+		var prePage=document.getElementById("page"+curIndex);
+		prePage.style.webkitTransform="rotateX(0deg)";
+	};
+
+</script>
+</head>
+<body>
+<center>
+<div id="my3dspace">
+	<div id="pagegroup">
+    	<div class="page" id="page1">1</div>
+        <div class="page" id="page2">2</div>
+        <div class="page" id="page3">3</div>
+        <div class="page" id="page4">4</div>
+        <div class="page" id="page5">5</div>
+        <div class="page" id="page6">6</div>
+    </div>
+</div>
+<div id="op">
+	<a href="javascript:next()">next</a>
+    <a href="javascript:pre()">pre</a>
+</div>
+</center>
+</body>
+</html>

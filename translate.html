@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>translate滑竿实现translate效果</title>
+<style>
+
+#experiment{
+     -webkit-perspective:800;
+     -webkit-perspective-origin:50% 50%;
+     -webkit-transform-style:-webkit-preserve-3d;
+}/*设置创建3d场景*/
+#block{
+     width:200px;
+     height:200px;
+     background-color:pink;
+     margin:100px auto;
+     -webkit-transition:background-color 3s;
+}
+#block:hover{
+     background-color:purple;
+}
+.range-control{ width:350px;}
+</style>
+
+<script type="text/javascript">
+   function translateall(){
+	var x=document.getElementById("translateX").value;
+	var y=document.getElementById("translateY").value;
+	var z=document.getElementById("translateZ").value;
+	document.getElementById("block").style.webkitTransform="translateX("+x+"px) translateY("+y+"px) translateZ("+z+"px)";
+	document.getElementById("degx-span").innerText=x;
+	document.getElementById("degy-span").innerText=y;
+	document.getElementById("degz-span").innerText=z;
+   }
+</script>
+</head>
+<body>
+<div id="experiment">
+	<div id="block"></div>
+</div>
+<center>
+	<div id="ksl">
+  		<p>translate x(沿x轴移动):<span id="degx-span">0</span>deg</p>
+  		<input type="range" min="-360" max="360" id="translateX" value="0" class="range-control" onmousemove="translateall()"/><br/>
+  		<p>translate y(沿y轴移动):<span id="degy-span">0</span>deg</p>
+  		<input type="range" min="-360" max="360" id="translateY" value="0" class="range-control" onmousemove="translateall()"/><br/>
+		<p>translate z(沿z轴移动):<span id="degz-span">0</span>deg</p> 
+		<input type="range" min="-360" max="360" id="translateZ" value="0" class="range-control" onmousemove="translateall()"/><br/>
+</div>
+</center>
+</body>
+</html>
